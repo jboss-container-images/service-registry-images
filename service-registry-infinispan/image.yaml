@@ -1,0 +1,67 @@
+
+# This is an Image descriptor for Cekit
+
+name: service-registry-infinispan
+description: The Red Hat Integration service registry is an artifact registry for schemas and API definitions for API and event-based endpoints. This image supports an Infinispan-based persistence mechanism based on Red Hat Data Grid.
+version: 1.1.0
+from: registry.redhat.io/ubi8/openjdk-11:latest
+
+labels:
+    - name: name
+      value: integration/service-registry-infinispan-rhel8
+
+    - name: version
+      value: 1.1.0
+
+    - name: com.redhat.component
+      value: integration-service-registry-infinispan-container
+
+    - name: maintainer
+      value: Service Registry Engineering <service-registry-dev@redhat.com>
+
+    - name: io.k8s.display-name
+      value: Red Hat Integration - Service Registy [Infinispan]
+
+    - name: io.k8s.description
+      value: An artifact registry for Schemas and API designs
+
+    - name: io.openshift.tags
+      value: integration
+
+envs:
+    - name: "JAVA_APP_DIR"
+      value: "/deployments"
+
+ports:
+    - value: 8080
+    - value: 8778
+    - value: 9779
+
+artifacts:
+    - name: apicurio-registry-storage-infinispan.jar
+      dest: /deployments/
+
+run:
+    user: 185
+
+packages:
+    content_sets:
+        x86_64:
+          - rhel-8-for-x86_64-baseos-rpms
+          - rhel-8-for-x86_64-appstream-rpms
+
+# Below configurations gets added as part of CPaaS automation. However, this needs to be added when you run CEKIT locally
+# https://gitlab.cee.redhat.com/cpaas/documentation/-/blob/master/schema/product/builds/brew_cekit_container.adoc#user-content-how-to-add-artifacts-from-pnc-into-cekit-builds
+
+#osbs:
+#    repository:
+#        name: containers/integration-service-registry-infinispan
+#        branch: private-cpaas
+#    koji_target: integration-service-registry-1.1-rhel-8-containers-candidate
+
+
+#artifacts:
+#    - name: "apicurio-registry-storage-infinispan"
+#      description: "Downloads the artifact from indy and saves it at path /deployments/" 
+#      url: "http://indy.psi.redhat.com/api/content/maven/group/redhat-builds/io/apicurio/apicurio-registry-storage-infinispan/1.3.2.Final-redhat-00003/apicurio-registry-storage-infinispan-1.3.2.Final-redhat-00003-all.tar.gz"
+#      dest: "/deployments/"

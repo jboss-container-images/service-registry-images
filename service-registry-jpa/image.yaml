@@ -1,0 +1,50 @@
+# This is an Image descriptor for Cekit
+
+name: service-registry-jpa
+description: The Red Hat Integration service registry is an artifact registry for schemas and API definitions for API and event-based endpoints. This image supports a JPA-based persistence mechanism.
+version: 1.1.0
+from: registry.redhat.io/ubi8/openjdk-11:latest
+
+labels:
+    - name: name
+      value: integration/service-registry-jpa-rhel8
+
+    - name: version
+      value: 1.1.0
+
+    - name: com.redhat.component
+      value: integration-service-registry-jpa-container
+
+    - name: maintainer
+      value: Service Registry Engineering <service-registry-dev@redhat.com>
+
+    - name: io.k8s.display-name
+      value: Red Hat Integration - Service Registy [JPA]
+
+    - name: io.k8s.description
+      value: An artifact registry for Schemas and API designs
+
+    - name: io.openshift.tags
+      value: integration
+
+envs:
+    - name: "JAVA_APP_DIR"
+      value: "/deployments"
+
+ports:
+    - value: 8080
+    - value: 8778
+    - value: 9779
+
+artifacts:
+    - name: apicurio-registry-storage-jpa.jar
+      dest: /deployments/
+
+run:
+    user: 185
+
+packages:
+    content_sets:
+        x86_64:
+          - rhel-8-for-x86_64-baseos-rpms
+          - rhel-8-for-x86_64-appstream-rpms
