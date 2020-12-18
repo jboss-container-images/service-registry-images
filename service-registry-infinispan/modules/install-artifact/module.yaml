@@ -1,0 +1,7 @@
+name: install-artifact
+version: 1.0
+artifacts:
+  - name: apicurio-registry-storage-infinispan.jar
+
+execute:
+  - script: copy.sh
