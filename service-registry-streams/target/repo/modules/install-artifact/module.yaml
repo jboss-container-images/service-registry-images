@@ -1,7 +1,0 @@
-name: install-artifact
-version: 1.0
-artifacts:
-  - name: apicurio-registry-storage-streams.jar
-
-execute:
-  - script: copy.sh
