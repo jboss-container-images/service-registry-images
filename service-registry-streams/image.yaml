@@ -39,9 +39,11 @@ ports:
 run:
     user: 185
 
-artifacts:
-    - name: apicurio-registry-storage-streams.jar
-      dest: /deployments/
+modules:
+    repositories:
+      - path: modules
+    install:
+      - name: install-artifact
 
 packages:
     content_sets:

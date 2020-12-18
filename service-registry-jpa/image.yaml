@@ -36,9 +36,11 @@ ports:
     - value: 8778
     - value: 9779
 
-artifacts:
-    - name: apicurio-registry-storage-jpa.jar
-      dest: /deployments/
+modules:
+    repositories:
+      - path: modules
+    install:
+      - name: install-artifact
 
 run:
     user: 185

@@ -1,0 +1,7 @@
+name: install-artifact
+version: 1.0
+artifacts:
+  - name: apicurio-registry-storage-jpa.jar
+
+execute:
+  - script: copy.sh
