@@ -1,8 +1,8 @@
 name: install-artifact
 version: 1.0
 artifacts:
-  - name: apicurio-registry-storage-streams.jar
+  - name: apicurio-registry-storage-streams-all.tar.gz
     md5: ""
 
 execute:
-  - script: copy.sh
+  - script: extract.sh

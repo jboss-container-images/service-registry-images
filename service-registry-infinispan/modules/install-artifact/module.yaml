@@ -1,8 +1,8 @@
 name: install-artifact
 version: 1.0
 artifacts:
-  - name: apicurio-registry-storage-infinispan.jar
+  - name: apicurio-registry-storage-infinispan-all.tar.gz
     md5: ""
 
 execute:
-  - script: copy.sh
+  - script: extract.sh
