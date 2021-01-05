@@ -1,7 +1,7 @@
 # This is an Image descriptor for Cekit
 
 name: service-registry-streams
-description: The Red Hat Integration service registry is an artifact registry for schemas and API definitions for API and event-based endpoints. This image supports a Kafka-based persistence mechanism based on AMQ Streams"
+description: The Red Hat Integration service registry is an artifact registry for schemas and API definitions for API and event-based endpoints. This image supports a Kafka-based persistence mechanism based on AMQ Streams.
 version: 1.1.0
 from: registry.redhat.io/ubi8/openjdk-11:latest
 
